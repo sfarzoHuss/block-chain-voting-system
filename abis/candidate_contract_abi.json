@@ -1,0 +1,205 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "id_candidate",
+        "type": "int256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_candidateName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_lastname",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_manifesto",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      }
+    ],
+    "name": "addCandidateToParty",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "candidate_id",
+        "type": "int256"
+      }
+    ],
+    "name": "incrementCandidateVotes",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "_candidateName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "_lastname",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "_manifesto",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      }
+    ],
+    "name": "CandidateRegistered",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "candidateIds",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "name": "candidates",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "id",
+        "type": "int256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "name",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "lastname",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "manifesto",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "int256",
+        "name": "votes",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "election",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllCandidates",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "int256",
+            "name": "id",
+            "type": "int256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "name",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "lastname",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "manifesto",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "int256",
+            "name": "votes",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "election_id",
+            "type": "int256"
+          }
+        ],
+        "internalType": "struct CandidateContract.Candidate[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

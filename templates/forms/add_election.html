@@ -1,0 +1,47 @@
+<div id="add-div" style="display: none;">
+    <div class="row">
+        <div class="heading-section ftco-animate" style="text-align: center;">
+            <h2 class="mb-4">Add a new election</h2>
+        </div>
+        <div class="col-md-12 ftco-animate">
+            <div class="py-md-5">
+
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    {{ form_add_election.hidden_tag() }}
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="id">{{ form_add_election.id.label }}</label>
+                                {{ form_add_election.id(class_="form-control") }}
+                                {% if form_add_election.id.errors %}
+                                    <ul class="errors">
+                                        {% for error in form_add_election.id.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="purpose">{{ form_add_election.purpose.label }}</label>
+                                {{ form_add_election.purpose(class_="form-control") }}
+                                {% if form_add_election.purpose.errors %}
+                                    <ul class="errors">
+                                        {% for error in form_add_election.purpose.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        <input type="submit" value="Add new Election">
+                    </p>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

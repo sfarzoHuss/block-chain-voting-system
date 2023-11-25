@@ -1,0 +1,35 @@
+<form action="{{ url_for('user_login') }}" method="POST">
+    {{ form_login.hidden_tag() }}
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="email">{{ form_login.email.label }}</label>
+                {{ form_login.email(class_="form-control") }}
+                {% if form_login.email.errors %}
+                    <ul class="errors">
+                        {% for error in form_login.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="password">{{ form_login.password.label }}</label>
+                {{ form_login.password(class_="form-control", type="password") }}
+                {% if form_login.password.errors %}
+                    <ul class="errors">
+                        {% for error in form_login.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <p>
+        <input type="submit" value="Login">
+    </p>
+</form>

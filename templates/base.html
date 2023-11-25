@@ -1,0 +1,61 @@
+<head>
+
+    {% block head %}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<title>BiblioSphere</title>
+
+		<link rel="icon" type="image/png" sizes="1048x794" href="{{url_for('static', filename='img/favicon.png')}}">
+
+		<!--apis -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+		<!-- end apis -->
+		
+		<!--fonts -->        
+		<link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome5-overrides.min.css') }}">
+        <!--end fonts -->  
+        
+        <!--css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+        <!--end css -->
+    {% endblock %}
+    
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand"  id="brand-link">E-ELECTIONS</a><button class="navbar-toggler" data-bs-toggle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" data-bs-target="#navbarResponsive"><i class="fa fa-bars"></i></button><div id="navbarResponsive" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{url_for('homepage')}}" id="book-list-link">HOMEPAGE</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      USER <i class="fas fa-user" style="margin-left: 5px;"></i>
+                    </a>
+                    {% if email %}
+                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                      <li><a class="dropdown-item" href="{{url_for('logout_user')}}">Logout</a></li>
+                    </ul>
+                    {% endif %}
+                  </li>
+            </ul>
+        </div>
+    </nav>    
+	<div class="mb-5">
+		{% block content %} {% endblock %}
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='js/script.min.js') }}"></script>  
+    <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script> 
+    <script type="text/javascript" src="{{ url_for('static', filename='js/languages.js') }}"></script> 
+
+
+</body>

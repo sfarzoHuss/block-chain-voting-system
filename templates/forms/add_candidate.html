@@ -1,0 +1,74 @@
+<div id="add-candidate-div" style="display: none;">
+    <div class="row">
+        <div class="heading-section ftco-animate" style="text-align: center;">
+            <h2 class="mb-4">Add a new candidate</h2>
+            <p>{{ message }}</p>
+        </div>
+        <div class="col-md-12 ftco-animate">
+            <div class="py-md-5">
+                
+                <form action="{{ url_for('add_candidate', id_election=election.id) }}" method="POST" enctype="multipart/form-data">
+                    {{ form_add_candidate.hidden_tag() }}
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="id">{{ form_add_candidate.id.label }}</label>
+                                {{ form_add_candidate.id(class_="form-control") }}
+                                {% if form_add_candidate.id.errors %}
+                                    <ul class="errors">
+                                        {% for error in form_add_candidate.id.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="name">{{ form_add_candidate.name.label }}</label>
+                                {{ form_add_candidate.name(class_="form-control") }}
+                                {% if form_add_candidate.name.errors %}
+                                    <ul class="errors">
+                                        {% for error in form_add_candidate.name.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="lastname">{{ form_add_candidate.lastname.label }}</label>
+                                {{ form_add_candidate.lastname(class_="form-control") }}
+                                {% if form_add_candidate.lastname.errors %}
+                                    <ul class="errors">
+                                        {% for error in form_add_candidate.lastname.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="manifesto">{{ form_add_candidate.manifesto.label }}</label>
+                                {{ form_add_candidate.manifesto(class_="form-control") }}
+                                {% if form_add_candidate.manifesto.errors %}
+                                    <ul class="errors">
+                                        {% for error in form_add_candidate.manifesto.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        <input type="submit" value="Add new Candidate">
+                    </p>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

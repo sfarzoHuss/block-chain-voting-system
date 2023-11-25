@@ -1,0 +1,54 @@
+
+{% extends "base.html" %} {% block head %} {{ super() }}
+<!--
+write here if you want to add css links only in this page
+<link
+        rel="stylesheet"
+        href="{{ url_for('static', filename= 'qwer.css') }}"
+/>-->
+{% endblock %} {% block content %}
+<header class="masthead" style="background-image:url('/assets/img/contact-bg.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>Welcome {{ user.name }}</h1><span class="subheading">This is the government section. Here, you can add and edit elections and candidates!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1 d-flex justify-content-center">
+            <div class="d-grid gap-2" style="margin-bottom: 20px; margin-left: 5px;">
+                <button id="add-election" class="btn btn-primary btn-lg rounded-pill">Add Election</button>
+            </div>
+        </div>
+    </div>
+    {% include 'forms/add_election.html' %} 
+    <div class="container py-4 py-xl-5">
+
+        <div class="row gy-4">
+            {% for election in elections %}
+                <div class="col-lg-4 col-md-6 col-sm-12 book-card">
+                    <div class="card-body p-4">
+                        <h4 class="card-title">{{ election.id }}</h4>
+                        <div class="details">
+                            <div class="label">Purpose:</div>
+                            <div class="value card-author">{{ election.purpose }}</div>
+                        </div>     
+                    </div>
+                    
+                    <div class="container mt-5">
+                        <a href="{{ url_for('election_details', id_election=election.id) }}" class="custom-link card-link">Election details</a>
+                    </div>
+    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

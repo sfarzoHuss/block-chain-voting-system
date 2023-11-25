@@ -1,0 +1,220 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "purpose",
+        "type": "bytes32"
+      }
+    ],
+    "name": "addElection",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "purpose",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ElectionCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      },
+      {
+        "internalType": "bool",
+        "name": "newExpired",
+        "type": "bool"
+      }
+    ],
+    "name": "updateElectionExpired",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "newPurpose",
+        "type": "bytes32"
+      }
+    ],
+    "name": "updateElectionPurpose",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "election",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "electionIds",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "name": "elections",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "purpose",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bool",
+        "name": "expired",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllElectionIds",
+    "outputs": [
+      {
+        "internalType": "int256[]",
+        "name": "",
+        "type": "int256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllElections",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "int256",
+            "name": "election_id",
+            "type": "int256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "purpose",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bool",
+            "name": "expired",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct ElectionContract.Election[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "election_id",
+        "type": "int256"
+      }
+    ],
+    "name": "getElectionInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "int256",
+            "name": "election_id",
+            "type": "int256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "purpose",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bool",
+            "name": "expired",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct ElectionContract.Election",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

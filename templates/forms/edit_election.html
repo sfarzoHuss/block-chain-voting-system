@@ -1,0 +1,29 @@
+<div id="edit-div" style="display: none;">
+    <div class="row">
+        <div class="heading-section ftco-animate" style="text-align: center;">
+            <h2 class="mb-4">Edit Election Information</h2>
+        </div>
+        <div class="col-md-12 ftco-animate">
+            <div class="py-md-5">
+
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    <input type="text" id="electionId" name="electionId" value="{{ election.id }}" class="d-none"><br><br>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="title">Purpose:</label>
+                            <input type="text" id="purpose" name="purpose" value="{{ election.purpose }}" class="form-control col-12" maxlength="32"><br><br>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="expired">Expired:</label>
+                            <input type="checkbox" id="expired" name="expired" {{ "checked" if election.expired else "" }} class="form-check-input">
+                        </div>                        
+                    </div>
+                    <p>
+                        <input type="submit" value="Election Book">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

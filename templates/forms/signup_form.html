@@ -1,0 +1,63 @@
+<form action="#" method="POST">
+    {{ form_signup.hidden_tag() }}
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="email">{{ form_signup.email.label }}</label>
+                {{ form_signup.email(class_="form-control") }}
+                {% if form_signup.email.errors %}
+                    <ul class="errors">
+                        {% for error in form_signup.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="name">{{ form_signup.name.label }}</label>
+                {{ form_signup.name(class_="form-control") }}
+                {% if form_signup.name.errors %}
+                    <ul class="errors">
+                        {% for error in form_signup.name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="lastname">{{ form_signup.lastname.label }}</label>
+                {{ form_signup.lastname(class_="form-control") }}
+                {% if form_signup.lastname.errors %}
+                    <ul class="errors">
+                        {% for error in form_signup.lastname.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>        
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="password">{{ form_signup.password.label }}</label>
+                {{ form_signup.password(class_="form-control", type="password") }}
+                {% if form_signup.password.errors %}
+                    <ul class="errors">
+                        {% for error in form_signup.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <p>
+        <input type="submit" value="Sing-up">
+    </p>
+</form>

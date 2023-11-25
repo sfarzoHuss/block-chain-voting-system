@@ -1,0 +1,83 @@
+
+{% extends "base.html" %} {% block head %} {{ super() }}
+<!--
+write here if you want to add css links only in this page
+<link
+        rel="stylesheet"
+        href="{{ url_for('static', filename= 'qwer.css') }}"
+/>-->
+{% endblock %} {% block content %}
+<header class="masthead" style="background-image:url('/assets/img/contact-bg.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1>Welcome {{ user.name }}</h1><span class="subheading">This is the election's details page!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% if user.is_admin %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto d-flex justify-content-center">
+            <button id="edit-election" class="btn btn-primary btn-lg rounded-pill">Edit Election</button>
+        </div>
+    </div>
+    {% include 'forms/edit_election.html' %} 
+</div>
+{% endif %}
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <h2 class="section-heading">Election Purpose</h2>
+                <p>{{ election.purpose }}</p>
+            </div>
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <h2 class="section-heading">Candidates for the current election:</h2>
+            </div>
+
+            {% if user.is_admin %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-lg-8 mx-auto d-flex justify-content-center">
+                            <button id="add-candidate" class="btn btn-primary btn-lg rounded-pill">Add Candidate</button>
+                        </div>
+                    </div>
+                    {% include 'forms/add_candidate.html' %} 
+                </div>
+            {% endif %}
+            <div class="row">
+                {% for candidate in candidates %}
+                    {% if candidate.election_id ==  election.id %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 book-card">
+                            <div class="card-body p-4">
+                                <h4 class="card-title">{{ candidate.name }}, {{ candidate.lastname }}</h4>
+                                <div class="details">
+                                    <div class="label">Candidate Idea:</div>
+                                    <div class="value card-author">{{ candidate.manifesto }}</div>
+                                </div> 
+                                {% if election.expired %}
+                                    {{ candidate.votes }}
+                                {% else %}
+                                    {% if not user.is_admin %}
+                                        {% if not has_voted %}
+                                        <a href="{{ url_for('vote_candidate', id_election=election.id, candidate_id=candidate.id_candidate) }}" class="btn btn-primary">Vote</a>
+                                        {% else %}
+                                            <p>Already voted for the current election.</p>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
